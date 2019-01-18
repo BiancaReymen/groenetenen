@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ import be.vdab.groenetenen.entities.Filiaal;
 import be.vdab.groenetenen.services.FiliaalService;
 
 @Controller
-@RequestMapping("filialen")
+@RequestMapping(path = "filialen", produces = MediaType.TEXT_HTML_VALUE)
 public class FiliaalController {
 	private static final String VAN_TOT_POSTCODE_VIEW = "filialen/vantotpostcode";
 	private static final String FILIAAL_VIEW = "filialen/filiaal";

@@ -4,13 +4,20 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.SafeHtml;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
 import be.vdab.groenetenen.constraints.Postcode;
 
 @Embeddable
+@XmlAccessorType(XmlAccessType.FIELD)
+@JsonAutoDetect(fieldVisibility=Visibility.ANY)
 public class Adres implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -18,7 +25,7 @@ public class Adres implements Serializable {
 	private String straat;
 	@NotBlank @SafeHtml
 	private String huisNr;
-	@NotBlank @Postcode
+	@Postcode
 	private int postcode;
 	@NotBlank @SafeHtml
 	private String gemeente;
