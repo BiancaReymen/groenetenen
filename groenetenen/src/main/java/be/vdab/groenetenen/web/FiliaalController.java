@@ -50,7 +50,12 @@ public class FiliaalController {
 		return new ModelAndView(REDIRECT_FILIAAL_NIET_GEVONDEN);
 	}
 	
-		
+	private static final String PER_ID_VIEW = "filialen/perid";
+	
+	@GetMapping("perid")
+	String findById() {
+		return PER_ID_VIEW;
+	}
 }
 
 
