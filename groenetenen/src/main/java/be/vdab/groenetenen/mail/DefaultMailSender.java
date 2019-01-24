@@ -2,7 +2,6 @@ package be.vdab.groenetenen.mail;
 
 
 import javax.mail.MessagingException;
-import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
 import org.slf4j.Logger;
@@ -10,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import be.vdab.groenetenen.entities.Offerte;
@@ -24,6 +24,7 @@ public class DefaultMailSender implements MailSender {
 	DefaultMailSender (JavaMailSender sender) {
 		this.sender = sender;
 	}
+	@Async
 	@Override
 	public void nieuweOfferte(Offerte offerte, String offertesURL) {
 		try {
